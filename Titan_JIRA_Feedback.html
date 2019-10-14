@@ -145,6 +145,9 @@
 	<!-- Application Feedback -->
 	<script type="text/javascript" src="https://jabra1.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/zc9wtt/b/11/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=4d449f4a"></script>
 	
+	<!-- No Feedback -->
+	<script type="text/javascript" src="https://jabra1.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/zca5q9/b/11/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=a98bf2f2"></script>
+	
 	<!-- We will customize Jira in the following script tag -->
 
 	<script type="text/javascript">
@@ -307,7 +310,40 @@
 						
 						}
  
-					}	
+					}
+				
+								// ==== No Feedback Collector ====
+				, 'a98bf2f2' : {
+					// === custom trigger function ===
+
+					  triggerFunction : function( showCollectorDialog ) {
+						$('#PF_button').click( function(e) {
+							e.preventDefault();
+							showCollectorDialog();
+						});
+ 					}
+
+
+					
+					// === default field values ===
+					, fieldValues : {
+						// default values
+						  summary : 'No Feedback',
+						  description : 'Thanks for participating in the User Experience Test',
+						
+						// FW Version
+						 customfield_10500 : '1.4.0', // Found In = FW Version
+ 
+						// hidden field value
+						 components : '12438', // Components = Darwin
+						 customfield_11500 : '10713', // Function = UX
+						 customfield_11600 : '11433', // Found By = Jabra - User Experience Test
+						 customfield_11919 : '11487', // FeedbackType = App Issue
+						 customfield_11927 : '17303' // Project Picker = Darwin
+						
+						}
+ 
+					}
  
 				});
  
